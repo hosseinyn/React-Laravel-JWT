@@ -6,6 +6,8 @@ import axios from "axios";
 import cookies from "js-cookie";
 
 const Login = () => {
+    const navigate = useNavigate();
+
   const schema = YUP.object().shape({
     email: YUP.string().email().required("Email is required"),
     password: YUP.string().required("Password is required").min(7).max(20),
@@ -17,8 +19,6 @@ const Login = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
-
-  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;

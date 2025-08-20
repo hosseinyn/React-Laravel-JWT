@@ -3,8 +3,11 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import * as YUP from "yup";
 import axios from "axios";
+import cookies from "js-cookie";
 
 const Signup = () => {
+    const navigate = useNavigate();
+
   const schema = YUP.object().shape({
     name: YUP.string().required("Name is required").max(50),
     email: YUP.string().email().required("Email is required"),
@@ -18,8 +21,6 @@ const Signup = () => {
   });
 
   const [formErrors, setFormErrors] = useState({});
-
-  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
