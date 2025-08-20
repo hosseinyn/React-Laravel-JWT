@@ -1,0 +1,62 @@
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    padding-top: 17px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    padding-bottom: 15px;
+    min-height: 310px;
+    width: 340px;
+    border-radius: 7px;
+    /* From https://css.glass */
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(7.5px);
+    -webkit-backdrop-filter: blur(7.5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.auth-form label , a {
+    align-self: flex-start;
+    margin-left: 19px;
+}
+
+.auth-form a {
+    margin-top: 3px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.auth-form input {
+    width: 300px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.auth-form button {
+    margin-top: 17px;
+    width: 120px;
+    height: 37px;
+    border-radius: 6px;
+    color: #fff;
+    background-color: #fd6860;
+    transition: 0.3s;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
+.auth-form button:hover {
+    background-color: #d7433b;
+}
+
+.error {
+    color: #ff0000;
+}
