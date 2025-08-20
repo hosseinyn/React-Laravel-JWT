@@ -1,0 +1,55 @@
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    gap: 11px;
+}
+
+.dashboard .dashboard-buttons {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+    gap: 3px;
+}
+
+.dashboard .dashboard-buttons form {
+    margin-left: 11px;
+}
+
+.dashboard-buttons button {
+    width: 130px;
+    height: 37px;
+    border-radius: 6px;
+    border: 0;
+    outline: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.green-button {
+    background-color: #017501;
+    color: #fff;
+
+    &:hover {
+        background-color: #015101;
+    }
+} 
+
+.orange-button {
+    background-color: #ffa500;
+    color: #000;
+
+    &:hover {
+        background-color: #a76d02;
+    }
+}
+
+.red-button {
+    background-color: #ff0000;
+    color: #fff;
+
+    &:hover {
+        background-color: #990000;
+    }
+}
