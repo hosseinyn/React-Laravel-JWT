@@ -34,4 +34,24 @@ class AccountController extends Controller
             return response()->json(['message'=> 'Already exists']);
         }
     }
+
+    public function change_password(Request $request): JsonResponse {
+        $change_password_data = $request->validate([
+            'name' => 'required|max:50',
+            'current_password' => 'required|min:7|max:20',
+            'new_password' => 'required|min:7|max:20'
+        ]);
+
+        $user = User::where("name" , $change_password_data["name"])->first();
+
+        if ($user && Hash::check($change_password_data["current_password"], $user->password)) {
+            $user->password = Hash::make($change_password_data["new_password"]);
+            $user->save();
+
+            return response()->json(["message"=> "Password changed successfully"]);
+        } else {
+            return response()->json(["message"=> "Current password is not correct"]);
+        }
+
+    }
 }

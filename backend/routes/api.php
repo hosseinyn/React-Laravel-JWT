@@ -16,4 +16,5 @@ Route::group([
 });
 
 Route::post('/auth/signup', [AccountController::class,'signup']);
+Route::post('/auth/change-password', [AccountController::class,'change_password']);
 
