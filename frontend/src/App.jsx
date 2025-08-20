@@ -5,6 +5,8 @@ import axios from "axios";
 
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   const [isUserLogedin , setIsUserLogedin] = useState(false);
@@ -25,13 +27,15 @@ function App() {
           );
 
           if (response.data.id) {
-            return true;
-          } else {
-            return false;
+            setIsUserLogedin(true)
+          } else if (response.data.messsage == "Unauthorized") {
+            setIsUserLogedin(false)
           }
         } catch (e) {
           console.log(e);
         }
+      } else {
+        setIsUserLogedin(false)
       }
     };
 
@@ -43,6 +47,9 @@ function App() {
       <Routes>
         <Route path="/login" element={isUserLogedin ? <Navigate to="/dashboard" /> : <Login />} />
         <Route path="/signup" element={isUserLogedin ? <Navigate to="/dashboard" /> : <Signup />} />
+        <Route element={<ProtectedRoute />}>
+          <Route path="/dashboard" element={<Dashboard />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
