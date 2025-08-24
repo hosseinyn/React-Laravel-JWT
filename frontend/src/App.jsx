@@ -8,6 +8,7 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
 import ChangePassword from "./pages/ChangePassword";
+import Logout from "./pages/Logout";
 
 function App() {
   const [isUserLogedin , setIsUserLogedin] = useState(false);
@@ -53,6 +54,9 @@ function App() {
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/change-password" element={<ChangePassword />} />
+        </Route>
+        <Route element={<ProtectedRoute />}>
+          <Route path="/logout" element={<Logout />} />
         </Route>
       </Routes>
     </BrowserRouter>
