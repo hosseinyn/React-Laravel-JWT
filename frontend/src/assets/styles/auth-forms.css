@@ -20,6 +20,11 @@
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
 
+.delete-account-form {
+    min-height: 64px !important;
+    margin-top: 100px;
+}
+
 .auth-form label , a {
     align-self: flex-start;
     margin-left: 19px;

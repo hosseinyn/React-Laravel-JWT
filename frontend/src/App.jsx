@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Dashboard from "./pages/Dashboard";
 import ChangePassword from "./pages/ChangePassword";
 import Logout from "./pages/Logout";
+import DeleteAccount from "./pages/DeleteAccount";
 
 function App() {
   const [isUserLogedin , setIsUserLogedin] = useState(false);
@@ -50,7 +51,7 @@ function App() {
         <Route path="/login" element={isUserLogedin ? <Navigate to="/dashboard" /> : <Login />} />
         <Route path="/signup" element={isUserLogedin ? <Navigate to="/dashboard" /> : <Signup />} />
         <Route element={<ProtectedRoute />}>
-          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/dashboard/*" element={<Dashboard />} />
         </Route>
         <Route element={<ProtectedRoute />}>
           <Route path="/change-password" element={<ChangePassword />} />

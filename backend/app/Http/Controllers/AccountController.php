@@ -54,4 +54,20 @@ class AccountController extends Controller
         }
 
     }
+
+    public function delete_account (Request $request): JsonResponse {
+        $delete_account_data = $request->validate([
+            'email' => 'required',
+            'password' => 'required|min:7|max:20',
+        ]);
+
+        $user = User::where('email', $delete_account_data['email'])->first();
+
+        if ($user && Hash::check($delete_account_data['password'], $user->password)) {
+            $user->delete();
+            return response()->json(['message'=> 'Account deleted successfuly']);
+        } else {
+            return response()->json(['message'=> 'Email or password is not correct']);
+        }
+    }
 }
